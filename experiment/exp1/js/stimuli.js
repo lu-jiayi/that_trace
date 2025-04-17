@@ -1,0 +1,388 @@
+// note: for FILL/UNGRAM, the ordering isn't what you'd expect
+const all_stimuli = [
+
+        {
+            "lexicalization": 1,
+            "complementizer": "that",
+            "gap_position": "subj",
+            "sentence": "Who did Sam think that chased the dog?",
+            "unique_id": 11,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 1,
+            "complementizer": "that",
+            "gap_position": "obj",
+            "sentence": "Who did Sam think that the dog chased?",
+            "unique_id": 12,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 1,
+            "complementizer": null,
+            "gap_position": "subj",
+            "sentence": "Who did Sam think chased the dog?",
+            "unique_id": 13,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 1,
+            "complementizer": null,
+            "gap_position": "obj",
+            "sentence": "Who did Sam think the dog chased?",
+            "unique_id": 14,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 2,
+            "complementizer": "that",
+            "gap_position": "subj",
+            "sentence": "Who did Ali think that saw the cat?",
+            "unique_id": 21,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 2,
+            "complementizer": "that",
+            "gap_position": "obj",
+            "sentence": "Who did Ali think that the cat saw?",
+            "unique_id": 22,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 2,
+            "complementizer": null,
+            "gap_position": "subj",
+            "sentence": "Who did Ali think saw the cat?",
+            "unique_id": 23,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 2,
+            "complementizer": null,
+            "gap_position": "obj",
+            "sentence": "Who did Ali think the cat saw?",
+            "unique_id": 24,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 3,
+            "complementizer": "that",
+            "gap_position": "subj",
+            "sentence": "Who did Jackie think that kicked the zebra?",
+            "unique_id": 31,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 3,
+            "complementizer": "that",
+            "gap_position": "obj",
+            "sentence": "Who did Jackie think that the zebra kicked?",
+            "unique_id": 32,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 3,
+            "complementizer": null,
+            "gap_position": "subj",
+            "sentence": "Who did Jackie think kicked the zebra?",
+            "unique_id": 33,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 3,
+            "complementizer": null,
+            "gap_position": "obj",
+            "sentence": "Who did Jackie think the zebra kicked?",
+            "unique_id": 34,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 4,
+            "complementizer": "that",
+            "gap_position": "subj",
+            "sentence": "Who did Alex think that spotted the fox?",
+            "unique_id": 41,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 4,
+            "complementizer": "that",
+            "gap_position": "obj",
+            "sentence": "Who did Alex think that the fox spotted?",
+            "unique_id": 42,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 4,
+            "complementizer": null,
+            "gap_position": "subj",
+            "sentence": "Who did Alex think spotted the fox?",
+            "unique_id": 43,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 4,
+            "complementizer": null,
+            "gap_position": "obj",
+            "sentence": "Who did Alex think the fox spotted?",
+            "unique_id": 44,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 5,
+            "complementizer": "that",
+            "gap_position": "subj",
+            "sentence": "Who did Jonathan think that found the hamster?",
+            "unique_id": 51,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 5,
+            "complementizer": "that",
+            "gap_position": "obj",
+            "sentence": "Who did Jonathan think that the hamster found?",
+            "unique_id": 52,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 5,
+            "complementizer": null,
+            "gap_position": "subj",
+            "sentence": "Who did Jonathan think found the hamster?",
+            "unique_id": 53,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 5,
+            "complementizer": null,
+            "gap_position": "obj",
+            "sentence": "Who did Jonathan think the hamster found?",
+            "unique_id": 54,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 6,
+            "complementizer": "that",
+            "gap_position": "subj",
+            "sentence": "Who did Hank think that kicked the donkey?",
+            "unique_id": 61,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 6,
+            "complementizer": "that",
+            "gap_position": "obj",
+            "sentence": "Who did Hank think that the donkey kicked?",
+            "unique_id": 62,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 6,
+            "complementizer": null,
+            "gap_position": "subj",
+            "sentence": "Who did Hank think kicked the donkey?",
+            "unique_id": 63,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 6,
+            "complementizer": null,
+            "gap_position": "obj",
+            "sentence": "Who did Hank think the donkey kicked?",
+            "unique_id": 64,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 7,
+            "complementizer": "that",
+            "gap_position": "subj",
+            "sentence": "Who did Natalie think that hit the chimpanzee?",
+            "unique_id": 71,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 7,
+            "complementizer": "that",
+            "gap_position": "obj",
+            "sentence": "Who did Natalie think that the chimpanzee hit?",
+            "unique_id": 72,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 7,
+            "complementizer": null,
+            "gap_position": "subj",
+            "sentence": "Who did Natalie think hit the chimpanzee?",
+            "unique_id": 73,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 7,
+            "complementizer": null,
+            "gap_position": "obj",
+            "sentence": "Who did Natalie think the chimpanzee hit?",
+            "unique_id": 74,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 8,
+            "complementizer": "that",
+            "gap_position": "subj",
+            "sentence": "Who did Boris think that pushed the monkey?",
+            "unique_id": 81,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 8,
+            "complementizer": "that",
+            "gap_position": "obj",
+            "sentence": "Who did Boris think that the monkey pushed?",
+            "unique_id": 82,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 8,
+            "complementizer": null,
+            "gap_position": "subj",
+            "sentence": "Who did Boris think pushed the monkey?",
+            "unique_id": 83,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 8,
+            "complementizer": null,
+            "gap_position": "obj",
+            "sentence": "Who did Boris think the monkey pushed?",
+            "unique_id": 84,
+            "item_type": "test"
+        },
+        {
+            "lexicalization": 1001,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks that Kelly found the gopher?",
+            "unique_id": 1001,
+            "item_type": "filler_good"
+        },
+        {
+            "lexicalization": 1002,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks that Omar helped the turtle?",
+            "unique_id": 1002,
+            "item_type": "filler_good"
+        },
+        {
+            "lexicalization": 1003,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks that Ethan scared the parrot?",
+            "unique_id": 1003,
+            "item_type": "filler_good"
+        },
+        {
+            "lexicalization": 1004,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks that Leo pushed the goat?",
+            "unique_id": 1004,
+            "item_type": "filler_good"
+        },
+        {
+            "lexicalization": 1005,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks that Dorothy killed the spider?",
+            "unique_id": 1005,
+            "item_type": "filler_good"
+        },
+        {
+            "lexicalization": 1006,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks that Ahmad touched the dolphin?",
+            "unique_id": 1006,
+            "item_type": "filler_good"
+        },
+        {
+            "lexicalization": 1007,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks that Penny saw the gopher?",
+            "unique_id": 1007,
+            "item_type": "filler_good"
+        },
+        {
+            "lexicalization": 1008,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks that Mary fed the elephant?",
+            "unique_id": 1008,
+            "item_type": "filler_good"
+        },
+        {
+            "lexicalization": 1009,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks llama the greeted Ivan that?",
+            "unique_id": 1009,
+            "item_type": "filler_bad"
+        },
+        {
+            "lexicalization": 1010,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks panda the cleaned Billy that?",
+            "unique_id": 1010,
+            "item_type": "filler_bad"
+        },
+        {
+            "lexicalization": 1011,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks sheep the rescued Leyla that?",
+            "unique_id": 1011,
+            "item_type": "filler_bad"
+        },
+        {
+            "lexicalization": 1012,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks duck the followed Zoe that?",
+            "unique_id": 1012,
+            "item_type": "filler_bad"
+        },
+        {
+            "lexicalization": 1013,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks alpaca the ignored Joan that?",
+            "unique_id": 1013,
+            "item_type": "filler_bad"
+        },
+        {
+            "lexicalization": 1014,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks horse the littered Brandon that?",
+            "unique_id": 1014,
+            "item_type": "filler_bad"
+        },
+        {
+            "lexicalization": 1015,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks eagle the slapped Hanako that?",
+            "unique_id": 1015,
+            "item_type": "filler_bad"
+        },
+        {
+            "lexicalization": 1016,
+            "complementizer": null,
+            "gap_position": null,
+            "sentence": "Who thinks crab the viewed Pam that?",
+            "unique_id": 1016,
+            "item_type": "filler_bad"
+        }
+    ]
